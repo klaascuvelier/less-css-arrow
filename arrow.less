@@ -1,0 +1,67 @@
+/*
+## CSS ARROWS
+Mixin to give css arrows (with givven properties) on elements. (based on http://cssarrowplease.com/)
+You can give the arrow border, so this is what's different from the #popoverArrow
+*/
+#arrow {
+
+    #create(@size, @color, @border-width, @border-color, @position1, @value1, @position2, @value2) {
+        position: relative;
+        background: @color;
+        border: @border-width solid @border-color;      
+
+        &:after, &:before {
+            .arrow-position(@position1, @value1);
+            border: solid transparent;
+            content: " ";
+            height: 0;
+            width: 0;
+            position: absolute;
+            pointer-events: none;
+        }
+
+        &:after {
+            .arrow-border-color(@position1, @color);
+            border-width: @size;
+            .arrow-position(@position2, @value2);
+            .arrow-margin(@position2, 0px - @size);
+        }
+
+        &:before {
+            .arrow-border-color(@position1, @border-color);
+            border-width: @size + 2px + @border-width;
+            .arrow-position(@position2, @value2);
+            .arrow-margin(@position2, 0px - (@size + 2px + @border-width));
+        }
+    }
+
+    .arrow-position(bottom, @value)     { bottom: @value; }
+    .arrow-position(left, @value)       { left: @value; }
+    .arrow-position(top, @value)        { top: @value; }
+    .arrow-position(right, @value)      { right: @value; }
+    .arrow-border-color(bottom, @value) { border-bottom-color: @value; }
+    .arrow-border-color(left, @value)   { border-left-color: @value; }
+    .arrow-border-color(top, @value)    { border-top-color: @value; }
+    .arrow-border-color(right, @value)  { border-right-color: @value; }
+    .arrow-margin(bottom, @value)       { margin-bottom: @value; }
+    .arrow-margin(left, @value)         { margin-left: @value; }
+    .arrow-margin(top, @value)          { margin-top: @value; }
+    .arrow-margin(right, @value)        { margin-right: @value; }
+
+
+    .top(@size, @color, @border-width, @border-color) {
+        #arrow > #create(@size, @color, @border-width, @border-color, bottom, 100%, left, 50%);
+    }
+
+    .left(@size, @color, @border-width, @border-color) {
+        #arrow > #create(@size, @color, @border-width, @border-color, right, 100%, top, 50%);
+    }
+
+    .right(@size, @color, @border-width, @border-color) {
+        #arrow > #create(@size, @color, @border-width, @border-color, left, 100%, top, 50%);
+    }
+
+    .bottom(@size, @color, @border-width, @border-color) {
+        #arrow > #create(@size, @color, @border-width, @border-color, top, 100%, left, 50%);
+    }
+}
