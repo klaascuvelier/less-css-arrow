@@ -29,9 +29,9 @@ You can give the arrow border, so this is what's different from the #popoverArro
 
         &:before {
             .arrow-border-color(@position1, @border-color);
-            border-width: @size + 2px + @border-width;
+            border-width: @size + round(1.41421356 * @border-width);
             .arrow-position(@position2, @value2);
-            .arrow-margin(@position2, 0px - (@size + 2px + @border-width));
+            .arrow-margin(@position2, 0px - (@size + round(1.41421356 * @border-width)));
         }
     }
 
