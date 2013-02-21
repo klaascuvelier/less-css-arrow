@@ -3,7 +3,7 @@ LESS Mixin to give css arrows (with given properties) on elements. (based on htt
 
 #Usage
 
-To create a black box with an 10px high upwards pointing arrow:
+To create a black box with a 10px high upwards pointing arrow:
 
     .block {
         #arrow > .top(10px, black);
