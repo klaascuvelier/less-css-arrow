@@ -1,0 +1,31 @@
+@import "arrow";
+
+@purple: #490A3D;
+@pink: #BD1550;
+@orange: #E97F02;
+@green: #8A9B0F;
+
+.container
+    {
+    width: 200px;
+    margin: 50px auto;
+    font-family: "Helvetica Neue", Helvetica, Arial, "Sans-Serif";
+    }
+
+.block
+    {
+    padding: 10px;
+    color: white;
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+    &.up          { #arrow > .top(10px,    @purple, 5px, @green); }
+    &.up-simple   { #arrow > .top(10px,    @orange); }
+    &.down        { #arrow > .bottom(10px, @pink, 5px, @purple); }
+    &.down-simple { #arrow > .bottom(10px, @green); }
+    &.left        { #arrow > .left(10px,   @orange, 5px, @pink); }
+    &.left-simple { #arrow > .left(10px,   @pink); }
+    &.right       { #arrow > .right(10px,  @green, 5px, @orange); }
+    &.right-simple{ #arrow > .right(10px,  @purple); }
+    &.final       { #arrow > .bottom(30px,  rgba(0,0,0,.5)); }
+    }
