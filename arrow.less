@@ -7,7 +7,7 @@ You can give the arrow border, so this is what's different from the #popoverArro
 
     #create(@size, @color, @border-width, @border-color, @position1, @value1, @position2, @value2) {
         position: relative;
-        background: @color;
+        background-color: @color;
         border: @border-width solid @border-color;
 
         &:after, &:before {
@@ -37,7 +37,7 @@ You can give the arrow border, so this is what's different from the #popoverArro
 
     #create-simple(@size, @color, @position1, @value1, @position2, @value2) {
         position: relative;
-        background: @color;
+        background-color: @color;
 
         &:after {
             .arrow-position(@position1, @value1);
